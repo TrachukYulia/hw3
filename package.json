@@ -1,0 +1,12 @@
+{
+    "name": "hw3_docker",
+    "version": "1.0.0",
+    "description": "node.js on docker",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js"
+    },
+    "dependencies": {
+      "express": "^4.16.1"
+    }
+  }
