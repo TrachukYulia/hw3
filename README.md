@@ -25,7 +25,7 @@ Node.js app має бути доступним на 80 порті. Створи�
 
 Можемо також перевірити логи для нашого контейнеру ``` docker logs app-container``` 
 
-<img width="500" alt="image" src="https://github.com/TrachukYulia/hw3/blob/master/Screenshots/dockerstats.png?raw=true">
+<img width="300" alt="image" src="https://github.com/TrachukYulia/hw3/blob/master/Screenshots/dockerlogs.png?raw=true">
 
 Виконаємо команду ``` curl http://localhost:80``` 
 
