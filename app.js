@@ -8,12 +8,9 @@ const host = '127.0.0.1';
 
 // приложение
 const app = express();
-app.get('/', (req, res) => {
-  res.send('Hello World');
-});
-
-// app.listen(port, host, () => {
-//   console.log(`Running on http://${host}:${port}`);
-// });
 app.listen(port);
+app.get("/", (req, res) => {
+  res.sendFile("/index.html");
+});
+// app.listen(port);
 console.log(`Running on http://${host}:${port}`);

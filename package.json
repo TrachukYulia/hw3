@@ -4,9 +4,12 @@
     "description": "node.js on docker",
     "main": "server.js",
     "scripts": {
-      "start": "node server.js"
+        "start": "node server.js"
     },
     "dependencies": {
-      "express": "^4.16.1"
+        "express": "^4.16.1"
+    },
+    "devDependencies": {
+        "eslint": "^8.29.0"
     }
-  }
+}
