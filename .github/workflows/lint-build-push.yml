@@ -1,4 +1,4 @@
-name: Lint Code Base
+name: Lint, build and push to DockerHub
 on:
   push:
       branches: [ "master" ]
