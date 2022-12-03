@@ -2,15 +2,20 @@ name: Lint Code Base
 on:
   # Триггер на push любого коммита в ветку
   push:
+      branches: [ "master" ]
 # Задачи к выполнению
+# I just want to lint, so I will create a "lint" stage
 jobs:
-  # Задача
-  linter:
-    # Сборка окружения ubuntu-latest
+  lint:
     runs-on: ubuntu-latest
-    # Шаги задачи
     steps:
-      # Переключение на текущую ветку (обязательное действие, если нужен доступ к файлам репозитория)
-      - uses: actions/checkout@v2
-      # Вызов Super Linter
-      - uses: docker://github/super-linter:v2.1.0
+# Lets name our Job eslint, because that's what it's doing.
+    - name: eslint
+ # tell eslint what stage it is. (This could also be build or test for example)
+ # What scripts do we want to run?    
+    # install eslint
+      run: npm i eslint
+    # Run eslin
+    - name: runner
+      run: node_modules/eslint/bin/eslint.js .
+      
