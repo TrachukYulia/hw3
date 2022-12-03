@@ -8,8 +8,15 @@ jobs:
     steps:
      - name: Install eslint
        run: npm i eslint
-     - name: Run eslint
+     - name: Run eslint #checking nodejs app
        run: node_modules/eslint/bin/eslint.js 
+     - name: Check out code Dockerfile
+       uses: actions/checkout@v1
+     - name: Run hadolint for Dockerfile 
+       uses: reviewdog/action-hadolint@v1
+       with:
+           github_token: ${{ secrets.github_token }}
+           hadolint_ignore: DL3008
   build:
     needs: lint
     runs-on: ubuntu-latest
