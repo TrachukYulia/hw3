@@ -17,5 +17,5 @@ jobs:
       run: npm i eslint
     # Run eslin
     - name: runner
-      run: node_modules/eslint/bin/eslint.js .
+      run: node_modules/eslint/bin/eslint.js 
       
