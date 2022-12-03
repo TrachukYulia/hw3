@@ -4,7 +4,9 @@
     "description": "node.js on docker",
     "main": "server.js",
     "scripts": {
-        "start": "node server.js"
+        "start": "node server.js",
+        "lint": "eslint.js"
+
     },
     "dependencies": {
         "express": "^4.16.1"
