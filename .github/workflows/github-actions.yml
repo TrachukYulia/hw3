@@ -1,26 +1,20 @@
-name: hw4
-
+name: Lint Code Base
+# Определение триггера для запуска CI/CD
 on:
+  # Триггер на push любого коммита в ветку
   push:
-    branches: [ "master" ]
+    # Игнорирование ветки `master`
+    branches-ignore:
+      - 'master'
+# Задачи к выполнению
 jobs:
-  lint:
+  # Задача
+  linter:
+    # Сборка окружения ubuntu-latest
     runs-on: ubuntu-latest
+    # Шаги задачи
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: npm
-      - name: Cache dependencies
-        id: cache
-        uses: actions/cache@v3
-        with:
-          path: ./node_modules
-          key: modules-${{ hashFiles('package-lock.json') }}
-      - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: npm ci
-      - name: Run linters
-        run: npx run eslint
- 
+      # Переключение на текущую ветку (обязательное действие, если нужен доступ к файлам репозитория)
+      - uses: actions/checkout@v2
+      # Вызов Super Linter
+      - uses: docker://github/super-linter:v2.1.0
