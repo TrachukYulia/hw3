@@ -24,4 +24,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build image
-        run: docker build -t ${{secrets.DOCKER_HUB_USERNAME}}/devops-nodejs-app:latest .
+        run: docker build -t ${{secrets.DOCKER_HUB_USERNAME}}/docker build -t node-app:v1 .
