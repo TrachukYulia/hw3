@@ -6,5 +6,13 @@ jobs:
   linter:
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v2
-        - uses: hw3/nodemodules/actions/eslint@3
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          cache: 'npm'
+      - name: install dependencies
+        run: npm install && npm ci
+
+      - name: check format
+        run: npm run format
