@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-nodejslab
+  labels:
+    app: nginx
+spec:
+  replicas: 3  # кількість екземплярів Pod, що буде створено цим Deployment
+  selector:
+    matchLabels:
+      app: nodejslab  # селектор по якому Deployment зв'язаний з Pod
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: nodejslab # мітка Pod по якому вона буде зв'язана з Deployment та Service
+    spec:
+      containers:
+      - image: node-app:v1   # образ Docker
+        imagePullPolicy: Never   # вказує k8s, що образ не потрібно завантажувати (варто використовувати лише для випадків, коли образи локальні)
+        name: node-container  # ім'я контейнеру
+        ports: 
+        - containerPort: 80   # порт по якому можна звертатись до подu
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 3
+          periodSeconds: 3
